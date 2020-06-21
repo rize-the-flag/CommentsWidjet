@@ -1,0 +1,108 @@
+.comment-widget {
+	margin: 0 auto;
+	max-width: 760px;
+	font-family: sans-serif;
+	color: #333;
+}
+
+.comments-list {
+	list-style-type: none;
+	padding: 0;
+
+	&__item {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+		& + & {
+			margin-top: 10px;
+		}
+	}
+}
+
+.post {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 5px 0 10px;
+		background-color: #f3b8b8;
+	}
+
+	&__body {
+		padding: 10px;
+		min-height: 50px;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 5px;
+	}
+
+	&__date {
+		align-self: flex-start;
+		font-size: 12px;
+		color: #ccc;
+	}
+
+	&__user-name {
+		padding: 5px 0;
+		font-size: 14px;
+	}
+}
+
+.form-add {
+	display: flex;
+	flex-direction: column;
+
+	&__author {
+		margin-bottom: 10px;
+		border: 1px solid #f3b8b8;
+		height: 20px;
+
+		&:hover,
+		&:focus {
+			outline: 2px solid #f3b8b8;
+		}
+	}
+
+	&__text {
+		margin-bottom: 20px;
+		border: 1px solid #f3b8b8;
+		resize: none;
+
+		&:hover,
+		&:focus {
+			outline: 2px solid #f3b8b8;
+		}
+	}
+}
+
+.submit {
+	appearance: none;
+	align-self: center;
+	border: 1px solid #f3b8b8;
+	padding: 8px 14px;
+	color: #f3b8b8;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+		background-color: #f3b8b8;
+	}
+}
+
+.btn-close {
+	appearance: none;
+	outline: none;
+	border: none;
+	font-size: 16px;
+	color: #dd3e3e;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		transform: scale(1.15);
+	}
+}
