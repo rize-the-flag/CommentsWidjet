@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CommentsList from './CommentsList';
-import FormNewComment from './FormNewComment';
-import WidgetStorage from './WidgetStorage';
+import CommentsList from '../components/CommentsList';
+import FormNewComment from '../components/FormNewComment';
+import WidgetStorage from '../components/WidgetStorage';
 import shortid from 'shortid';
-import '../../../scss/CommentWidget.scss';
+import '../../scss/CommentWidget.scss';
 
 export default class CommentWidget extends Component {
   constructor( props ) {

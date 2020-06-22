@@ -1,19 +1,14 @@
 import React from 'react';
 
-export default class Comment extends React.Component {
-  constructor( props ) {
-    super( props );
-  }
-
-  render() {
-    const {value: {userName, commentBody, dateTime}} = this.props.post;
+const Comment = props => {
+    const {value: {userName, commentBody, dateTime}} =props.post;
     return (
       <div className = "post">
         <div className = "post__header">
           <span className = "post__user-name">{userName}</span>
           <button
             className = "btn-close"
-            onClick = {this.props.closeBtnClick}
+            onClick = {props.closeBtnClick}
           >
             &#10060;
           </button>
@@ -26,5 +21,6 @@ export default class Comment extends React.Component {
         </div>
       </div>
     );
-  }
 };
+
+export default Comment;
