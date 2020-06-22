@@ -8,21 +8,23 @@ import '../../scss/CommentWidget.scss';
 export default class CommentWidget extends Component {
   constructor( props ) {
     super( props );
-    this.storage = new WidgetStorage( 'CommentsWidget' );
     this.state = {
-      posts: [
-        ...this.storage.getStorage(),
-      ]
+      posts: [],
     };
+  }
+
+  componentDidMount() {
+    this.storage = new WidgetStorage( 'CommentsWidget' );
+    this.setState( {posts: [...this.storage.getStorage()]} );
   }
 
   deleteComment( hash ) {
     const posts = this.state.posts.filter( post => post.hash !== hash );
     this.setState( {posts} );
-    this.storage.removeRecord(hash);
+    this.storage.removeRecord( hash );
   }
 
-  handleSubmit( {userName,  commentBody}) {
+  handleSubmit( {userName, commentBody} ) {
     const newRecord = {
       hash: shortid.generate(),
       value: {
@@ -31,7 +33,7 @@ export default class CommentWidget extends Component {
         commentBody: commentBody,
       }
     };
-    this.storage.addRecord(newRecord.hash, newRecord.value);
+    this.storage.addRecord( newRecord.hash, newRecord.value );
     this.setState( {posts: [...this.state.posts, newRecord]} );
   }
 
