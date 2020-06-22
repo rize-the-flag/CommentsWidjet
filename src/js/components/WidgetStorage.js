@@ -33,6 +33,12 @@ export default class WidgetStorage {
     this.flush();
   }
 
+  *[Symbol.Iterator]() {
+    for (const element of this.storage){
+      yield element;
+    }
+  }
+
   flush() {
     localStorage.setItem( this.storageKey, JSON.stringify( this.storage ) );
   }
