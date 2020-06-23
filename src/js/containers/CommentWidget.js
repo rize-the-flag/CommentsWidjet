@@ -4,7 +4,6 @@ import FormNewComment from '../components/FormNewComment';
 import WidgetStorage from '../components/WidgetStorage';
 import shortid from 'shortid';
 import '../../scss/CommentWidget.scss';
-import '@babel/polyfill';
 
 export default class CommentWidget extends Component {
 

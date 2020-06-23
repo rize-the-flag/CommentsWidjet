@@ -7,8 +7,8 @@ class FormNewComment extends React.Component {
       userName: '',
       commentBody: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind( this );
+    this.handleSubmit = this.handleSubmit.bind( this );
   }
 
   handleChange( ev ) {
@@ -18,14 +18,14 @@ class FormNewComment extends React.Component {
                    } );
   }
 
-  handleSubmit(ev) {
+  handleSubmit( ev ) {
     ev.preventDefault();
     const {onSubmit} = this.props;
-    onSubmit(this.state);
-    this.setState({
-                    userName: '',
-                    commentBody: ''
-                  })
+    onSubmit( this.state );
+    this.setState( {
+                     userName: '',
+                     commentBody: ''
+                   } );
   }
 
   render() {
