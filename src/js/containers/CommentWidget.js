@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CommentsList from '../components/CommentsList';
 import FormNewComment from '../components/FormNewComment';
-import WidgetStorage from '../components/WidgetStorage';
+import LocalStorage from '../LocalStorage';
 import shortid from 'shortid';
 import '../../scss/CommentWidget.scss';
 
@@ -12,7 +12,7 @@ export default class CommentWidget extends Component {
   };
 
   componentDidMount() {
-    this.storage = new WidgetStorage( 'CommentsWidget' );
+    this.storage = new LocalStorage( 'CommentsWidget' );
     this.setState( {posts: [...this.storage.getStorage()]} );
   }
 
