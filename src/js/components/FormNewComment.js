@@ -1,24 +1,20 @@
 import React from 'react';
 
 class FormNewComment extends React.Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      userName: '',
-      commentBody: ''
-    };
-    this.handleChange = this.handleChange.bind( this );
-    this.handleSubmit = this.handleSubmit.bind( this );
-  }
 
-  handleChange( ev ) {
+  state = {
+    userName: '',
+    commentBody: ''
+  };
+
+  handleChange = ( ev ) => {
     const {name, value} = ev.target;
     this.setState( {
                      [name]: value,
                    } );
-  }
+  };
 
-  handleSubmit( ev ) {
+  handleSubmit = ( ev ) => {
     ev.preventDefault();
     const {onSubmit} = this.props;
     onSubmit( this.state );
@@ -26,7 +22,7 @@ class FormNewComment extends React.Component {
                      userName: '',
                      commentBody: ''
                    } );
-  }
+  };
 
   render() {
     const {userName, commentBody} = this.state;
