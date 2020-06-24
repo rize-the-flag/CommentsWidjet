@@ -16,8 +16,8 @@ export default class LocalStorage {
     return this._storage.slice();
   }
 
-  removeRecord( key ) {
-    this._storage = this._storage.filter( e => e.hash !== key );
+  removeRecord( index ) {
+    this._storage.splice( index, 1 );
     this.flush();
   }
 

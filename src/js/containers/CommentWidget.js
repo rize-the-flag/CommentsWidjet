@@ -17,9 +17,14 @@ export default class CommentWidget extends Component {
   }
 
   deleteComment = ( hash ) => {
-    const posts = this.state.posts.filter( post => post.hash !== hash );
+    const posts = this.state.posts.filter( ( post, index ) => {
+      if (post.hash === hash) {
+        this.storage.removeRecord( index );
+      }
+      return post.hash !== hash;
+    } );
+
     this.setState( {posts} );
-    this.storage.removeRecord( hash );
   };
 
   handleSubmit = ( {userName, commentBody} ) => {
