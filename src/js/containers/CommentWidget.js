@@ -20,8 +20,9 @@ export default class CommentWidget extends Component {
     const posts = this.state.posts.filter( ( post, index ) => {
       if (post.hash === hash) {
         this.storage.removeRecord( index );
+        return false;
       }
-      return post.hash !== hash;
+      return true;
     } );
 
     this.setState( {posts} );
