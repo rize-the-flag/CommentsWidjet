@@ -1,35 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class FormNewComment extends React.Component {
+const FormNewComment = props => {
 
-  state = {
-    userName: '',
-    commentBody: ''
-  };
+  const [userName, setUserName] = useState('');
+  const [commentBody, setCommentBody] = useState('');
+  const {onSubmit} = props;
 
-  handleChange = ( ev ) => {
-    const {name, value} = ev.target;
-    this.setState( {
-                     [name]: value,
-                   } );
-  };
-
-  handleSubmit = ( ev ) => {
+  function handleSubmit(ev) {
     ev.preventDefault();
-    const {onSubmit} = this.props;
-    onSubmit( this.state );
-    this.setState( {
-                     userName: '',
-                     commentBody: ''
-                   } );
-  };
+    onSubmit({userName, commentBody});
+    setUserName('');
+    setCommentBody('');
+  }
 
-  render() {
-    const {userName, commentBody} = this.state;
     return (
       <form
         className = "form-add"
-        onSubmit = {this.handleSubmit}
+        onSubmit = {handleSubmit}
       >
         <input
           className = "form-add__author"
@@ -39,7 +26,7 @@ class FormNewComment extends React.Component {
           minLength = "3"
           required = {true}
           value = {userName}
-          onChange = {this.handleChange}
+          onChange = { (e) => setUserName(e.target.value)}
         />
         <textarea
           className = "form-add__text"
@@ -48,7 +35,7 @@ class FormNewComment extends React.Component {
           rows = "6"
           required = {true}
           value = {commentBody}
-          onChange = {this.handleChange}
+          onChange = {(e)=> setCommentBody(e.target.value)}
         >
       </textarea>
         <button className = "submit">
@@ -56,9 +43,6 @@ class FormNewComment extends React.Component {
         </button>
       </form>
     );
-  }
-
-
-}
+};
 
 export default FormNewComment;

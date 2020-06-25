@@ -41,7 +41,6 @@ export default class CommentWidget extends Component {
     this.setState( {posts: [...this.state.posts, newRecord]} );
   };
 
-
   render() {
     return (
       <div className = "comment-widget">
